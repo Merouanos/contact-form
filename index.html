@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Frontend Mentor | Contact form</title>
+
+  <link rel="stylesheet" href="font.css">
+
+
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          green: {
+            200: 'hsl(148, 38%, 91%)',
+            600: 'hsl(169, 82%, 27%)',
+          },
+          red: 'hsl(0, 66%, 54%)',
+          white: 'hsl(0, 0%, 100%)',
+          grey: {
+            500: 'hsl(186, 15%, 59%)',
+            900: 'hsl(187, 24%, 22%)',
+          },
+        },
+      
+      },
+    },
+  };
+</script>
+
+
+
+<style type="text/tailwindcss">
+  @layer utilities {
+    .input{
+      @apply border rounded-lg col-span-4  py-2 px-5 hover:cursor-pointer focus:outline-none focus:border-green-600 h-10 focus:border-2 focus:cursor-text
+    }
+
+    .radi{
+      @apply checked:accent-green-600 
+    }
+    .labeld{
+      @apply hover:cursor-pointer w-full
+    }
+    sup{
+      @apply text-green-600
+    }
+   
+  }
+</style>
+</head>
+<body class="bg-green-200">
+  <div id="sucs" class="bg-grey-900 text-white rounded p-5 sm:w-fit mx-auto mt-1 hidden">
+    <h2 class="font-bold flex gap-x-2"><img src="assets/images/icon-success-check.svg">Message Sent!</h2>
+    <p>Thanks for completing the form.We'll be in touch soon!</p>
+  </div>
+
+
+<form action="https://sheetdb.io/api/v1/j07i1z0lngv6c" id="forms" method="post" class="text-gray-500 mx-auto w-11/12 relative  sm:w-1/2 grid grid-cols-4 bg-white p-5 mt-5 flex-wrap gap-x-5 gap-y-2 border border-slate-100 rounded-xl">
+  <h1 class="text-2xl text-gray-900 col-span-4 ">Contact Us</h1>
+    
+  <label for="name" class="col-span-4 sm:col-span-2 sm:row-start-2">First Name <sup>*</sup></label>
+  <input type="text" name="Name" id="name" maxlength="30" class="input border-gray-500  sm:col-span-2 sm:row-start-3">
+  <p id="p1" class="sm:col-span-2 col-span-4 text-red hidden">This field is required</p>
+  
+  <label for="lname" class=" col-span-4 sm:col-span-2 sm:col-start-3 sm:row-start-2 ">Last Name <sup>*</sup></label>
+  <input type="text" name="LastName" id="lname" maxlength="30" class="input border-gray-500  sm:col-span-2 sm:row-start-3">
+  <p id="p2" class="sm:col-span-2 col-span-4 sm:col-start-3 text-red hidden">This field is required</p>
+
+
+  <label for="email" class="col-span-4 ">Email Address <sup>*</sup></label>
+  <input type="text" name="Email" id="email" maxlength="70"  class="input border-gray-500">
+  <p id="p3" class="sm:col-span-2 col-span-4 text-red hidden">Please enter a valid email address</p>
+
+  <label for="" class="col-span-4 mt-5">Query Type <sup>*</sup></label>
+  <div class="has-[:checked]:bg-green-200 has-[:checked]:border-green-600 col-span-4 sm:col-span-2 border border-gray-500 flex p-3 gap-x-2 items-center rounded-lg">
+    <input type="radio" name="QueryType" id="query1" value="General" class="radi">
+    <label for="query1" class="labeld">General Enquiry</label>
+  </div>
+  <div id="tp" class="has-[:checked]:bg-green-200 has-[:checked]:border-green-600 col-span-4 sm:col-span-2 border border-gray-500 flex p-3 gap-x-2 items-center rounded-lg">
+    <input type="radio" name="QueryType" id="query2" value="Support" class="radi">
+  <label for="query2" class="labeld">Support Request</label>
+  </div>
+  <p id="p4" class="sm:col-span-2 col-span-4 text-red hidden">Please select a query type</p>
+
+
+  <label for="msg" class="col-span-4 mt-5">Message <sup>*</sup></label>
+ <textarea name="Message" id="msg" maxlength="200" class="resize-none h-32 col-span-4 border border-gray-500 rounded-l p-2 focus:outline-none focus:border-green-600 focus:border-2"></textarea>
+ <p id="p5" class="sm:col-span-2 col-span-4 text-red hidden">This field is required</p>
+
+ <div class="col-span-4 flex gap-x-5 mt-5">
+ <input type="checkbox" id="box" class="radi">
+  <label for="box" class="labeld">I consent to being contacted by the team</label>
+</div>
+<p id="p6" class="mb-5  col-span-4 text-red hidden">To submit this form, please consent to being contacted</p>
+  <input type="submit" value="Submit" id="sub" class="col-span-4 bg-green-600 hover:bg-green-900 hover:cursor-pointer text-white rounded-l py-2">
+
+</form>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Merouanos</a>.
+  </div>
+</body>
+</html>
+<script src="js.js"></script>
