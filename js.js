@@ -18,12 +18,18 @@ document.getElementById("box").addEventListener("change",function(){
         
 })
 
-document.getElementById("tp").onclick=function(){
+
+
+document.getElementById("tp1").onclick=function(){
     const p=document.getElementById("p4");
     if(p.classList.contains("visible"))
             p.classList.replace("visible","hidden");
 }
-
+document.getElementById("tp2").onclick=function(){
+    const p=document.getElementById("p4");
+    if(p.classList.contains("visible"))
+            p.classList.replace("visible","hidden");
+}
 
 sub.addEventListener("click",function(event){
     event.preventDefault();
@@ -38,22 +44,14 @@ sub.addEventListener("click",function(event){
     t[5]=checkbox(document.getElementById("box"),document.getElementById("p6"));
     if(t[1]&&t[2]&&t[3]&&t[4]&&t[5])
     {
-        let form = document.getElementById("forms");
-        fetch(form.action, {
-            method: "POST",
-            body: new FormData(
-              document.getElementById("forms")
-            ),
-          })
-            .then((response) => response.json()).then(()=>{
-                const su=document.getElementById("sucs");
-                su.classList.replace("hidden","visible");
-                su.classList.add("fade");
-                return su;
-            }).then((item)=>setTimeout(function() {
+        
+                const item=document.getElementById("sucs");
+                item.classList.replace("hidden","visible");
+                item.classList.add("fade");
+           setTimeout(function() {
                 item.classList.replace("visible","hidden");
                 item.classList.remove("fade");
-              }, 3000))
+              }, 3000);
 
     } 
     else
