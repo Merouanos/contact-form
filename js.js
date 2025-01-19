@@ -45,13 +45,22 @@ sub.addEventListener("click",function(event){
     if(t[1]&&t[2]&&t[3]&&t[4]&&t[5])
     {
         
-                const item=document.getElementById("sucs");
-                item.classList.replace("hidden","visible");
-                item.classList.add("fade");
-           setTimeout(function() {
+        let form = document.getElementById("forms");
+        fetch(form.action, {
+            method: "POST",
+            body: new FormData(
+              document.getElementById("forms")
+            ),
+          })
+            .then((response) => response.json()).then(()=>{
+                const su=document.getElementById("sucs");
+                su.classList.replace("hidden","visible");
+                su.classList.add("fade");
+                return su;
+            }).then((item)=>setTimeout(function() {
                 item.classList.replace("visible","hidden");
                 item.classList.remove("fade");
-              }, 3000);
+              }, 3000))
 
     } 
     else
