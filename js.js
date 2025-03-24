@@ -35,6 +35,7 @@ sub.addEventListener("click",function(event){
     
 
     event.preventDefault();
+    const su=document.getElementById("exist");
 
     let t=[];
     t[0]=checkempty(document.getElementById("name"),document.getElementById("p1"));
@@ -43,35 +44,41 @@ sub.addEventListener("click",function(event){
     t[3]=checkcorrect(document.getElementById("email"),document.getElementById("p3"))
     t[4]=checkselected(document.getElementById("query1"),document.getElementById("query2"),document.getElementById("p4"));
     t[5]=checkbox(document.getElementById("box"),document.getElementById("p6"));
-    if(t[1]&&t[2]&&t[3]&&t[4]&&t[5])
+    if(t[0]&&t[1]&&t[2]&&t[3]&&t[4]&&t[5])
     {
-        fetch("treat.php",{
+        let test;
+
+        su.classList.replace("visible","hidden");
+       await(test).fetch("treat.php",{
             method: "POST",
             body: new FormData(document.querySelector("form")),
         }).then((response)=>(response.json())).then((data)=>{
+            const sucs=document.getElementById("sucs");
             
             if(data.data==="1")
             {
-                const su=document.getElementById("sucs");
-                su.classList.replace("hidden","visible");
-                su.classList.add("fade");
-                setTimeout(function() {
-                su.classList.replace("visible","hidden");
-                su.classList.remove("fade");
+                sucs.classList.replace("hidden","visible");
+                sucs.classList.add("fade");
+                 test=  setTimeout(function() {
+                sucs.classList.replace("visible","hidden");
+                sucs.classList.remove("fade");
               }, 3000);
+              
             }
             else
             {
-                const su=document.getElementById("exist");
-                su.style.display="block";
-               /* setTimeout(function() {
-                su.classList.replace("visible","hidden");
-              }, 3000);*/
-
+                su.classList.replace("hidden","visible");
+                sucs.classList.replace("visible","hidden");
+                sucs.classList.remove("fade");
             }
+
+            
 
                 });
     }
+    else 
+    su.classList.replace("visible","hidden");
+
 
         
 
