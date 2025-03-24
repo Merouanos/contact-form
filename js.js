@@ -34,6 +34,7 @@ document.getElementById("tp2").onclick=function(){
 sub.addEventListener("click",function(event){
     
 
+    event.preventDefault();
 
     let t=[];
     t[0]=checkempty(document.getElementById("name"),document.getElementById("p1"));
@@ -44,15 +45,38 @@ sub.addEventListener("click",function(event){
     t[5]=checkbox(document.getElementById("box"),document.getElementById("p6"));
     if(t[1]&&t[2]&&t[3]&&t[4]&&t[5])
     {
-        
-       
+        fetch("treat.php",{
+            method: "POST",
+            body: new FormData(document.querySelector("form")),
+        }).then((response)=>(response.json())).then((data)=>{
+            
+            if(data.data==="1")
+            {
+                const su=document.getElementById("sucs");
+                su.classList.replace("hidden","visible");
+                su.classList.add("fade");
+                setTimeout(function() {
+                su.classList.replace("visible","hidden");
+                su.classList.remove("fade");
+              }, 3000);
+            }
+            else
+            {
+                const su=document.getElementById("exist");
+                su.style.display="block";
+               /* setTimeout(function() {
+                su.classList.replace("visible","hidden");
+              }, 3000);*/
+
+            }
+
+                });
+    }
 
         
 
-    } 
-    else
-    event.preventDefault();
     
+        
 
 })
 

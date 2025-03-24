@@ -34,10 +34,17 @@
             {
                 //echo $client->echo();
                 $sql->execute_query("INSERT INTO contact(name,lastname,email,type,msg) VALUES({$client->echo()});");
-               
+                 echo json_encode(['data'=>'1']);
+                 
+
             }
             else
-                echo "account exist";
+            
+            echo json_encode(['data'=>'error']);
+
+
+
+            
         }
 
 

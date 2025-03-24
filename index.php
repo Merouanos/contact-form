@@ -61,8 +61,10 @@
     <p>Thanks for completing the form.We'll be in touch soon!</p>
   </div>
 
+ 
 
-<form action="./treat.php" id="forms" method="POST" class="text-gray-500 mx-auto w-11/12 relative  sm:w-1/2 grid grid-cols-4 bg-white p-5 mt-5 flex-wrap gap-x-5 gap-y-2 border border-slate-100 rounded-xl">
+
+<form  id="forms" method="post"  class="text-gray-500 mx-auto w-11/12 relative  sm:w-1/2 grid grid-cols-4 bg-white p-5 mt-5 flex-wrap gap-x-5 gap-y-2 border border-slate-100 rounded-xl">
   <h1 class="text-2xl text-gray-900 col-span-4  ">Contact Us</h1>
     
   <label for="name" class="col-span-4 sm:col-span-2 sm:row-start-2">First Name <sup>*</sup></label>
@@ -100,9 +102,20 @@
 </div>
 <p id="p6" class="mb-5  col-span-4 text-red hidden">To submit this form, please consent to being contacted</p>
   <input type="submit" value="Submit" id="sub" class="col-span-4 bg-green-600 hover:bg-green-900 hover:cursor-pointer text-white rounded-l py-2">
-
-</form>
   
+</form>
+<div id="exist" style="
+  background-color: red;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin-inline: auto;
+    width: 40%;
+    color: white;
+
+" class="hidden">
+    <p>You've already submited a form</p>
+  </div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Merouanos</a>.
